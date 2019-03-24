@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, {PureComponent} from 'react';
 
 class ContactsFilterView extends PureComponent {
 
@@ -8,15 +8,17 @@ class ContactsFilterView extends PureComponent {
     };
 
     render() {
+        console.log(this.constructor.name, " : ", "In render");
+        console.log(this.constructor.name, " : ", "Props:", this.props);
 
-        console.log(this.constructor.name," : ","In render");
-        console.log(this.constructor.name," : ","Props:",this.props);
-
-        return (<div>
-            <span><label>Name</label><input name="contactName" type="text" onChange={this.filterContacts}></input></span>
-
-        </div>);
-
+        return (
+            <div>
+                <span>
+                    <label>Name</label><
+                    input name="contactName" type="text" onChange={this.filterContacts}></input>
+                </span>
+            </div>
+        );
     }
 
     // //Hacky solution
@@ -24,6 +26,6 @@ class ContactsFilterView extends PureComponent {
     //     console.log(this.constructor.name," : ","In componentDidMount");
     //     this.props.updateFilterText("");
     // }
-};
+}
 
 export default ContactsFilterView;

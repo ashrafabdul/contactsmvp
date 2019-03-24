@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import ContactsFilterView from "./ContactsFilterView";
 import ContactsTableView from "./ContactsTableView";
 import ContactsFilterPresenter from "../presenters/ContactsFilterPresenter"
@@ -17,40 +17,39 @@ class ContactsFilterContainerView extends Component {
 
         this.state = {
             filterText: '',
-            filteredContacts:[]
+            filteredContacts: []
         };
-
     }
 
     componentDidMount() {
-        console.log(this.constructor.name," : ","In componentDidMount");
+        console.log(this.constructor.name, " : ", "In componentDidMount");
         this.updateFilterText("");
     }
 
-    updateFilterText(filterText){
-        console.log(this.constructor.name," : ","In updateFilterText");
-        this.setState({filterText:filterText},function(){
-            this.presenter.onFilterTextChange(this.state.filterText);
+    updateFilterText(filterText) {
+        console.log(this.constructor.name, " : ", "In updateFilterText");
+        this.setState({filterText: filterText}, function () {
+            this.presenter.onFilterTextChange(filterText);
         });
-
     }
 
-    updateFilteredContacts(filteredContacts){
-        console.log(this.constructor.name," : ","In updateFilteredContacts");
-        console.log(this.constructor.name," : ","filteredContacts",filteredContacts);
-        this.setState({filteredContacts:filteredContacts});
+    updateFilteredContacts(filteredContacts) {
+        console.log(this.constructor.name, " : ", "In updateFilteredContacts");
+        console.log(this.constructor.name, " : ", "filteredContacts", filteredContacts);
+        this.setState({filteredContacts: filteredContacts});
     }
 
     render() {
-        console.log(this.constructor.name," : ","In render");
-        console.log(this.constructor.name," : ","State:",this.state);
-        console.log(this.constructor.name," : ","filterContacts Length:",this.state.filteredContacts.length);
-            return (<div>
+        console.log(this.constructor.name, " : ", "In render");
+        console.log(this.constructor.name, " : ", "State:", this.state);
+        console.log(this.constructor.name, " : ", "filterContacts Length:", this.state.filteredContacts.length);
+        return (
+            <div>
                 <ContactsFilterView updateFilterText={this.updateFilterText}/>
-                <ContactsTableView updateFilterText={this.updateFilterText} filteredContacts={this.state.filteredContacts} />
-            </div>);
-
-
+                <ContactsTableView updateFilterText={this.updateFilterText}
+                                   filteredContacts={this.state.filteredContacts}/>
+            </div>
+        );
     }
 }
 

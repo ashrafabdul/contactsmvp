@@ -1,29 +1,27 @@
 import ContactsFilterModel from "../models/ContactsFilterModel"
 
-class ContactsFilterPresenter{
+class ContactsFilterPresenter {
 
-    constructor(){
+    constructor() {
 
         this.contactsFilterModel = new ContactsFilterModel();
 
     }
 
-    setView(view){
+    setView(view) {
         this.view = view;
     }
 
-
-    onFilterTextChange(filterText){
-        console.log(this.constructor.name," : ","In onFilterTextChange");
-        console.log(this.constructor.name," : ","filterText:",filterText);
-        if(filterText===""){
-            this.contactsFilterModel.filterContactsDummy("*");
+    onFilterTextChange(filterText) {
+        console.log(this.constructor.name, " : ", "In onFilterTextChange");
+        console.log(this.constructor.name, " : ", "filterText:", filterText);
+        if (filterText === "") {
+            this.contactsFilterModel.filterContacts(".*");
             this.view.updateFilteredContacts(this.contactsFilterModel.contacts);
-        }else{
+        } else {
             this.contactsFilterModel.filterContacts(filterText);
             this.view.updateFilteredContacts(this.contactsFilterModel.filteredContacts);
         }
-
     }
 }
 
