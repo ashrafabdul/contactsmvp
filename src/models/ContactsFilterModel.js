@@ -4,6 +4,8 @@ class ContactsFilterModel {
         this.contacts = [];
         this.filteredContacts = [];
         this.fetchData();
+
+        this.setModelChangeCallback = this.setModelChangeCallback.bind(this);
     }
 
 
@@ -30,6 +32,10 @@ class ContactsFilterModel {
             this.filteredContacts.push(item);
 
         });
+
+        // Notify the callback
+        this.onModelChange();
+
         console.log(this.constructor.name, " : ", "In initData", " TypeOf contacts", typeof (this.contacts));
         console.log(this.constructor.name, " : ", "In initData", " TypeOf filteredContacts", typeof (this.filteredContacts));
     }
@@ -41,6 +47,16 @@ class ContactsFilterModel {
         this.filteredContacts = this.contacts.filter(contact => contact.name.match(regex));
         console.log(this.constructor.name, " : ", "In filterContacts", " TypeOf contacts", typeof (this.contacts));
         console.log(this.constructor.name, " : ", "In filterContacts", " TypeOf filteredContacts", typeof (this.filteredContacts));
+    }
+
+    setModelChangeCallback(modelChangeCallback) {
+        this.modelChangeCallback = modelChangeCallback;
+    }
+
+    onModelChange() {
+        if (this.modelChangeCallback) {
+            this.modelChangeCallback();
+        }
     }
 
 }
