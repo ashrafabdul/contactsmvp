@@ -1,18 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 class ContactsRowView extends React.Component {
 
-
     render() {
-
-        console.log(this.constructor.name," : ","In render");
-        console.log(this.constructor.name," : ","Props:",this.props);
+        console.log(this.constructor.name, " : ", "In render");
+        console.log(this.constructor.name, " : ", "Props:", this.props);
 
         const contact = this.props.contact;
-        return (<tr>
-            <td>{contact.name}</td>
-            <td>{contact.number}</td>
-        </tr>);
+        return (
+            <tr>
+                <td>{contact.name}</td>
+                <td>{contact.number}</td>
+            </tr>
+        );
     }
 }
 

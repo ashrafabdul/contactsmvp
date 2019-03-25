@@ -1,17 +1,16 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
 import ContactsFilterContainerView from "./views/ContactsFilterContainerView"
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-      <ContactsFilterContainerView/>
+    render() {
+        return (
+            <div className="App">
+                <ContactsFilterContainerView/>
 
-      </div>
-    );
-  }
+            </div>
+        );
+    }
 }
 
 export default App;
